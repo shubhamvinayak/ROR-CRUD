@@ -1,0 +1,23 @@
+<h1>Index page</h1>
+<table> 
+<thead>
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<% @articles.each do |article|%>
+
+<tr>
+<td><%= article.title%></td>
+<td><%= article.description%>   --><%=article.user.username if article.user%></td>
+<td><%=link_to 'Delete' , article_path(article), method: :delete %></td>
+<td><%=link_to 'edit' , edit_article_path(article) %></td>
+<td><%=link_to 'show' , article_path(article) %></td>
+</tr>
+<%end%>
+</tbody>
+</table>
